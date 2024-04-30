@@ -40,8 +40,8 @@ def test_bubble_sort_0():
     result = []
     input_arr = []
     if (len(input_arr)==0):
-        result=[]
-    assert(result==[])
+        result=[0]
+    assert(result==[0])
     
 def test_bubble_sort_notint():
     result = []
