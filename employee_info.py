@@ -1,4 +1,3 @@
-# Define a dictionary to store employee information
 employee_data = [
     {"name": "John", "age": 30, "department": "Sales", "salary": 50000},
     {"name": "Jane", "age": 25, "department": "Marketing", "salary": 60000},
@@ -10,29 +9,18 @@ employee_data = [
 
 def get_employees_by_age_range(age_lower_limit, age_upper_limit):
     result = []
-
-    # check for age limits and append the item to result
     for item in employee_data:
         if int(item["age"]) > int(age_lower_limit) and int(item["age"]) < int(age_upper_limit):
             result.append(item)
-
     return result
 
 def calculate_average_salary():
-    total = 0
     average = 0
-
-    #add your implementation to calculate here
-
-
+    average = sum(employee['salary'] for employee in employee_data)/len(employee_data)
     return average
 
 def get_employees_by_dept(department):
-    result = []
-
-    # Add your implementation from here
-
-
+    result = list(employee for employee in employee_data if employee['department'] == department)
     return result
 
 def display_all_records():
@@ -49,15 +37,11 @@ def display_records(employee_info):
 def display_main_menu():
 
     print("\n----- Employee information Tracker -----")
-
     print("Select option\n")
-
     print("1 - Display all records")
     print("2 - Display average salary")
     print("3 - Display employee within age range")
     print("4 - Display employee in a department")
-
-
     print("Q - Quit")
 
     option = input("Enter selection =>")
@@ -75,9 +59,8 @@ def display_main_menu():
         employee_info = get_employees_by_age_range(age_lower_limit, age_upper_limit)
         display_records(employee_info)
 
-
     elif option == '4':
-        department = input("Name of Department = ")
+        department = input("Name of Department = ").capitalize()
         employee_info = get_employees_by_dept(department)
         display_records(employee_info)
 
@@ -85,9 +68,7 @@ def display_main_menu():
         quit()
 
 def main():
-
-    while (True):
-        display_main_menu()
+    display_main_menu()
 
 
 if __name__ == "__main__":
